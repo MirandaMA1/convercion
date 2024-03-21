@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Conversiones</title>
+    <!-- Agrega los enlaces a Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center">Calculadora de Conversiones</h1>
+        <!-- Formulario para la conversión de pesos a dólares -->
+        <form>
+            <div class="form-group">
+                <label for="pesos">Pesos (MXN)</label>
+                <input type="number" class="form-control" id="pesos" placeholder="Ingresa la cantidad en pesos">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="convertirPesosADolares()">Convertir a Dólares</button>
+            <p id="resultadoDolares"></p>
+        </form>
+
+        <!-- Formulario para la conversión de grados Celsius a Fahrenheit -->
+        <form>
+            <div class="form-group">
+                <label for="celsius">Grados Celsius (°C)</label>
+                <input type="number" class="form-control" id="celsius" placeholder="Ingresa la temperatura en °C">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="convertirCelsiusAFahrenheit()">Convertir a Fahrenheit</button>
+            <p id="resultadoFahrenheit"></p>
+        </form>
+
+        <!-- Formulario para la conversión de gramos a kilogramos -->
+        <form>
+            <div class="form-group">
+                <label for="gramos">Gramos (g)</label>
+                <input type="number" class="form-control" id="gramos" placeholder="Ingresa la cantidad en gramos">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="convertirGramosAKilogramos()">Convertir a Kilogramos</button>
+            <p id="resultadoKilogramos"></p>
+        </form>
+    </div>
+
+    <!-- Agrega los enlaces a Bootstrap JS y tus scripts personalizados -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Funciones para las conversiones
+        function convertirPesosADolares() {
+            const pesos = parseFloat(document.getElementById('pesos').value);
+            const tipoCambio = 0.060; // Tipo de cambio actual (1 MXN = 0.060 USD)
+            const dolares = pesos * tipoCambio;
+            document.getElementById('resultadoDolares').innerText = `Dólares: $${dolares.toFixed(2)}`;
+        }
+
+        function convertirCelsiusAFahrenheit() {
+            const celsius = parseFloat(document.getElementById('celsius').value);
+            const fahrenheit = (celsius * 9/5) + 32;
+            document.getElementById('resultadoFahrenheit').innerText = `Fahrenheit: ${fahrenheit.toFixed(2)}°F`;
+        }
+
+        function convertirGramosAKilogramos() {
+            const gramos = parseFloat(document.getElementById('gramos').value);
+            const kilogramos = gramos / 1000;
+            document.getElementById('resultadoKilogramos').innerText = `Kilogramos: ${kilogramos.toFixed(2)} kg`;
+        }
+    </script>
+</body>
+</html>
